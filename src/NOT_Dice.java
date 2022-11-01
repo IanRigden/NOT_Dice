@@ -1,14 +1,18 @@
 import java.util.Random;
-
+import java.util.Scanner;
 public class NOT_Dice {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         //Set variables to 0
         int dice1 = 0;
         int dice2 = 0;
         int when = 0;
 
-        //Loop 100 times
-        for (int i = 1; i < 101; i++) {
+        Scanner objScanner = new Scanner(System.in);
+        System.out.println("How many times should I roll the dice?");
+        int rolls = objScanner.nextInt();
+
+        //Loop ??? times
+        for (int i = 1; i < rolls+1; i++) {
             //Roll each dice
             dice1 = roll(6);
             dice2 = roll(6);
@@ -29,7 +33,11 @@ public class NOT_Dice {
         }
 
         //Show when the 6 happened.
-        System.out.println("A 6 was thrown after " + when + " attempts.");
+        if (when > 0) {
+            System.out.println("A 6 was thrown after " + when + " attempts.");
+        } else {
+            System.out.println("Bad luck! A 6 was not thrown after " + rolls + " attempts.");
+        }
     }
 
     private static int roll(int sides) {
